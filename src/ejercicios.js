@@ -60,22 +60,22 @@ function imagenAMatriz(rutaImagen) {
   
   // 1. Leer el archivo PNG
    const buffer = fs.readFileSync(rutaImagen);
-    const png = PNG.sync.read(buffer);
+  const png = PNG.sync.read(buffer);
   
   // 2. Crear la matriz vacía
    const matriz = [];
   
   // 3. Recorrer cada fila (y) y cada columna (x)
   for (let y = 0; y < png.height; y++) {
-     const fila = [];
-     for (let x = 0; x < png.width; x++) {
+    const fila = [];
+    for (let x = 0; x < png.width; x++) {
   //     // 4. Calcular el índice en el buffer
-       const idx = (png.width * y + x) << 2; // equivalente a * 4
-       
+    const idx = (png.width * y + x) << 2; // equivalente a * 4
+  //     
   //     // 5. Extraer los valores RGBA
        const pixel = {
-         r: png.data[idx],
-         g: png.data[idx + 1],
+        r: png.data[idx],
+        g: png.data[idx + 1],
          b: png.data[idx + 2],
          a: png.data[idx + 3]
        };
@@ -86,7 +86,7 @@ function imagenAMatriz(rutaImagen) {
    }
   
   // 6. Retornar la matriz
-   return matriz;
+  return matriz;
   
   return []; // REEMPLAZAR CON TU CÓDIGO
 }
